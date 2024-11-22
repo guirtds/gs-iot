@@ -37,7 +37,7 @@ Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que está u
 
 ![Node-RED](img/Node%20Red.png)
 
-O fluxo do Node-RED está exportado no arquivo <a href="config_node_red.json/">Config</a>
+O fluxo do Node-RED está exportado no arquivo <a href="config_node_red.json/">Config Node-RED</a>
 
 #### Instalar extensão:
 
