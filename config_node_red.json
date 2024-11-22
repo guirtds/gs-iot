@@ -1,0 +1,240 @@
+[
+    {
+        "id": "faf7e5a6905fe96a",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0915f78bb6c8721",
+        "type": "mqtt in",
+        "z": "faf7e5a6905fe96a",
+        "name": "",
+        "topic": "EnergySaver/Movement",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "395adbc678032616",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "348b1d2bc5c5d563"
+            ]
+        ]
+    },
+    {
+        "id": "348b1d2bc5c5d563",
+        "type": "json",
+        "z": "faf7e5a6905fe96a",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "0e9cd611c6c0d2e4",
+                "06dbb34c3e7c0e6c",
+                "a7481974835eeab6"
+            ]
+        ]
+    },
+    {
+        "id": "0e9cd611c6c0d2e4",
+        "type": "debug",
+        "z": "faf7e5a6905fe96a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e7facd5c6ffab2bd",
+        "type": "ui_gauge",
+        "z": "faf7e5a6905fe96a",
+        "name": "",
+        "group": "f5470aced4a94452",
+        "order": 2,
+        "width": "8",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Brilho do LED",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "06dbb34c3e7c0e6c",
+        "type": "function",
+        "z": "faf7e5a6905fe96a",
+        "name": "motionDetected",
+        "func": "msg.payload = msg.payload.motionDetected;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "ee25ef030c4628a0"
+            ]
+        ]
+    },
+    {
+        "id": "a7481974835eeab6",
+        "type": "function",
+        "z": "faf7e5a6905fe96a",
+        "name": "brightness",
+        "func": "let brightness = msg.payload.brightness; // Valor recebido do ESP32 (0 a 255)\nmsg.payload = Math.round((brightness / 255) * 100); // Escala para 0 a 100\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "e7facd5c6ffab2bd"
+            ]
+        ]
+    },
+    {
+        "id": "ee25ef030c4628a0",
+        "type": "ui_chart",
+        "z": "faf7e5a6905fe96a",
+        "name": "",
+        "group": "af61ee7b2e4d5f86",
+        "order": 1,
+        "width": "19",
+        "height": "6",
+        "label": "Movimento Detectado",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "395adbc678032616",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "f72bdc9f32234a82bb5a023b126e85a1.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f5470aced4a94452",
+        "type": "ui_group",
+        "name": "Monitoramento",
+        "tab": "f9c80c0c02ad9cbc",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af61ee7b2e4d5f86",
+        "type": "ui_group",
+        "name": "Monitoramento2",
+        "tab": "f9c80c0c02ad9cbc",
+        "order": 2,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f9c80c0c02ad9cbc",
+        "type": "ui_tab",
+        "name": "Monitoramento",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
