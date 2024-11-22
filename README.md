@@ -11,6 +11,7 @@
 
 - Link do vídeo no Youtube:
 - Link do projeto no Wokwi: <a href="https://wokwi.com/projects/415226947604233217">Wokwi</a>
+</br>
 
 Este projeto utiliza ESP32 conectado a um sensor de movimento e a um potenciômetro para detectar movimentações, simulando a presença de uma pessoa na rua por exemplo, Os dados são enviados para um broker MQTT e visualizados no Node-RED.
 
@@ -31,7 +32,7 @@ Este projeto utiliza ESP32 conectado a um sensor de movimento e a um potenciôme
 
 ### Resultado Esperado
 
-Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que estaria utilizando 60% da sua potência de iluminação, passaria a utilizar 100% da sua potência, uma vez que o sensor já detectou uma presença naquele determinado momento.
+Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que está utilizando 60% da sua potência de iluminação, passará a utilizar 100% da sua potência, uma vez que o sensor já detectou uma presença naquele determinado momento.
 
 ### 📌 Configuração do Node-RED
 
