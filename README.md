@@ -38,6 +38,8 @@ Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que está u
 
 ![Node-RED](img/Node%20Red.png)
 
+O fluxo do Node-RED está exportado no arquivo <a href="config_node_red.json/">Config</a>
+
 #### Instalar extensão:
 
 - Abra o Node-RED.
@@ -47,7 +49,16 @@ Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que está u
 
 ![Paletas](img/Paletas.png)
 
-## Integrantes
+### Como importar:
+
+- Abra o Node-RED.
+- Clique no menu no canto superior direito (três linhas horizontais) e selecione Importar.
+- Carregue o arquivo node_red_config.json.
+- Configure os tópicos MQTT e o broker
+
+Após importar, o fluxo estará pronto, incluindo gráficos e medidores de temperatura e umidade.
+
+### Integrantes
 - Guilherme Rocha Toledo dos Santos - RM99396
   <br>
   
