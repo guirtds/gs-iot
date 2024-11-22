@@ -1,29 +1,51 @@
 # Global Solution - Energy Saver
 
-<img src="images/Logo%20GS.jpg" alt="Logo GS" width="200">
+<img src="img/Logo%20GS.jpg" alt="Logo GS" width="200">
 
 ### Descrição do projeto: <br>
 
 - O EnergySave é um sistema revolucionário de monitoramento de energia para iluminação pública que visa promover eficiência e sustentabilidade ambiental urbana. Através da integração de sensores IoT e uma API REST em Java, o sistema coleta e analisa em tempo real informações referentes ao consumo dos postes, resultando na redução do desperdício energético e na facilitação do planeamento da manutenção. Por meio de um aplicativo móvel dedicado, as autoridades podem visualizar dados atualizados instantaneamente, receber alertas sobre usos anómalos da energia e consultar relatórios minuciosos para uma gestão mais inteligente e sustentável no âmbito da iluminação urbana.
 <br>
 
-![Arquitetura GS Java](images/Arquitetura%20GS%20Java.jpg)
+### Detecção de movimento com ESP32 e Node-RED
 
-- Acessar link para vídeo do pitch do projeto: 
-- Acessar link para a apresentação e explicação do projeto: 
+- Link do vídeo no Youtube:
+- Link do projeto no Wokwi: <a href="https://wokwi.com/projects/415226947604233217">Wokwi</a>
 
-### 🚀 Tecnologias Utilizadas
-- Java 17: Linguagem de programação principal.
-- Spring Boot: Framework que facilita o desenvolvimento e configurações.
+Este projeto utiliza ESP32 conectado a um sensor de movimento e a um potenciômetro para detectar movimentações, simulando a presença de uma pessoa na rua por exemplo, Os dados são enviados para um broker MQTT e visualizados no Node-RED.
 
-### 📌 Como Executar Localmente
-Para testar o projeto localmente, siga as etapas abaixo:
+![Circuito](img/Circuito.png)
 
-1. Clone o repositório: 
-2 Configure o ambiente: Certifique-se de ter o Java 17 e o Maven instalados.
-3. Execute a aplicação: mvn spring-boot:run
+### 🚀 Funcionalidades
 
- 
+- Detecção de movimento por meio do sensor de movimento.
+- Publicação de dados via protocolo MQTT.
+- Visualização no Node-RED, incluindo gráficos.
+
+### Componentes Necessários
+- ESP32
+- Potenciômetro
+- Sensor de movimento
+- Resistor
+- LED
+
+### Resultado Esperado
+
+Ao pressionar o botão "Simulate Motion" do PIR Motion Sensor, o LED que estaria utilizando 60% da sua potência de iluminação, passaria a utilizar 100% da sua potência, uma vez que o sensor já detectou uma presença naquele determinado momento.
+
+### 📌 Configuração do Node-RED
+
+![Node-RED](img/Node%20Red.png)
+
+#### Instalar extensão:
+
+- Abra o Node-RED.
+- Clique no menu no canto superior direito (três linhas horizontais) e selecione Settings.
+- No canto esquerdo da aba que ira abrir (User Settings) selecione Palette.
+- Clique em Install e baixe as seguintes extensoes.
+
+![Paletas](img/Paletas.png)
+
 ## Integrantes
 - Guilherme Rocha Toledo dos Santos - RM99396
   <br>
