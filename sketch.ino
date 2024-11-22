@@ -3,30 +3,30 @@
 #include <WiFiClientSecure.h>
 
 // Configurações Wi-Fi
-const char* ssid = "Wokwi-GUEST"; // Nome da rede Wi-Fi
+const char* ssid = "Wokwi-GUEST"; 
 const char* password = "";
 
 // Configurações do HiveMQ Cloud
-const char* mqtt_server = "f72bdc9f32234a82bb5a023b126e85a1.s1.eu.hivemq.cloud"; // Substitua pelo seu hostname
-const int mqtt_port = 8883;                         // Porta segura
-const char* mqtt_user = "EnergyUser";               // Substitua pelo usuário configurado no HiveMQ
-const char* mqtt_password = "Admin123";             // Substitua pela senha configurada no HiveMQ
+const char* mqtt_server = "f72bdc9f32234a82bb5a023b126e85a1.s1.eu.hivemq.cloud"; 
+const int mqtt_port = 8883;                         
+const char* mqtt_user = "EnergyUser";               
+const char* mqtt_password = "Admin123";             
 const char* mqttTopic = "EnergySaver/Movement";
 
 WiFiClientSecure espClient; // Cliente seguro para TLS
 PubSubClient client(espClient);
 
-#define POT_PIN   34   // Pino analógico para o potenciômetro
-#define PIR_PIN   27   // Pino digital para o sensor PIR (movimento)
-#define LED_PIN   18   // Pino PWM para o LED (controle de brilho)
+#define POT_PIN   34   
+#define PIR_PIN   27   
+#define LED_PIN   18   
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);        // Configura o pino do LED como saída
-  pinMode(PIR_PIN, INPUT);         // Configura o pino do PIR como entrada
-  Serial.begin(115200);            // Inicia a comunicação serial
+  pinMode(LED_PIN, OUTPUT);        
+  pinMode(PIR_PIN, INPUT);         
+  Serial.begin(115200);            
 
   // Configura cliente TLS
-  espClient.setInsecure(); // Permite conexão sem validação do certificado
+  espClient.setInsecure(); 
 
   // Conecta ao Wi-Fi
   WiFi.begin(ssid, password);
@@ -66,7 +66,7 @@ void loop() {
     ledBrightness = 255;  // 100% de brilho
     Serial.println("Movimento detectado! LED em 100% de brilho.");
   } else {
-    ledBrightness = (int)(brightness * 0.6);  // 60% do brilho ajustado pelo potenciômetro
+    ledBrightness = (int)(brightness * 0.6);  
     Serial.println("Sem movimento. LED em 60% de brilho.");
   }
   analogWrite(LED_PIN, ledBrightness);
@@ -95,5 +95,5 @@ void loop() {
     }
   }
 
-  delay(1000);  // Delay para evitar leituras excessivas
+  delay(1000);  
 }
