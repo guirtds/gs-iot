@@ -8,7 +8,7 @@
 
 ### Detecção de movimento com ESP32 e Node-RED
 
-- Link do vídeo no Youtube:
+- Link do vídeo no Youtube: <a href="https://youtu.be/onf9svdg2RE?si=rKPVNHJ7OnepsTHr">YT</a>
 - Link do projeto no Wokwi: <a href="https://wokwi.com/projects/415226947604233217">Wokwi</a>
 </br>
 
